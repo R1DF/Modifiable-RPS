@@ -1,1 +1,13 @@
-# Game Settings
+# Game settings
+
+[scissors]
+beats = "scissors"
+falls_to = "paper"
+
+[paper]
+beats = "rock"
+falls_to = "scissors"
+
+[rock]
+beats = "paper"
+falls_to = "rock"
