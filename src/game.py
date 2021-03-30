@@ -25,9 +25,12 @@ class Game:
 
         self.final_result = self.analyze_results()
         input("Continuing...\n") # this is necessary because since the game class is run multiple times, you will need to see the results before having them closed
+
+
     def list_choices(self):
         for i in range(3):
             print(f"\t{i+1}. {self.items[i].title()}")
+
 
     def player_pick(self):
         try:
@@ -40,9 +43,11 @@ class Game:
 
         return self.items[player_input-1], player_input
 
+
     def computer_pick(self):
         computer_selection = randint(1, len(self.items))
         return self.items[computer_selection-1], computer_selection
+
 
     def compare_choices(self, player, ai):
         if player == self.file[ai]["beats"] and ai == self.file[player]["falls_to"]:
@@ -51,6 +56,7 @@ class Game:
             return "player"
         else:
             return "draw"
+
 
     def analyze_results(self):
         result = self.compare_choices(self.player_item_choice, self.computer_item_choice)
@@ -71,6 +77,7 @@ class Game:
         else:
             print("Draw! No-one gets the victory.")
             return "draw"
+
 
     def print_victory_message(self, status: str, player_item=None, ai_item=None) -> None:
         messages = toml.load("messages.toml")

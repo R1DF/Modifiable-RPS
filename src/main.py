@@ -29,12 +29,11 @@ class MRPS:
     def __init__(self):
         # Initialization of variables for the game
         self.necessary_files = (
-            "main.py", # unnecessary but clean when included
             "game.py",
             "items.toml",
             "messages.toml"
         )
-        self.player_points = self.ai_points = self.amount_of_games = self.player_wins = self.ai_wins = 0 # 0 is the default for ints
+        self.player_points = self.ai_points = self.amount_of_games = self.player_wins = self.ai_wins = self.draws = 0 # 0 is the default for ints
         self.games = []
 
         # Full game order
@@ -46,6 +45,7 @@ class MRPS:
             self.games.append(Game().final_result)
         final_winner = self.analyze_all_results()
         self.closing_message(final_winner)
+
 
     def opening(self):
         print("""\
@@ -73,15 +73,17 @@ Now then, are you ready? (Y/N, default is Y)""")
             print("Have a good day!")
             quit()
 
+
     def setup(self):
         clear()
         # Checking if files exist
         if False in self.check_file_availability(): # gives an error message if not every file was found
-            print("ERROR\nOne of more of the necessary files were not found, either they were deleted or renamed.\n"
+            print("ERROR\nOne of more of the necessary files were not found, either they were deleted, renamed or not installed.\n"
                   "Please make sure that all of these files are inside the same directory, including this current script (main.py):")
             for i in self.necessary_files:
                 print("-", i)
             print("You can also try deleting the game and reinstalling from github.com/R1DF/Modifiable-RPS.")
+            input() # so that the message is seen before closing
             quit()
 
         # Entering amount of game to play
@@ -89,9 +91,11 @@ Now then, are you ready? (Y/N, default is Y)""")
                                              "SETUP\nEnter amount of games you want to play (from 1 to 7, default is 5): ")
         clear()
 
+
     def analyze_all_results(self):
         self.player_wins = self.games.count("player")
         self.ai_wins = self.games.count("ai")
+        self.draws = self.games.count("draw")
         if self.player_wins > self.ai_wins:
             return "player"
         elif self.player_wins < self.ai_wins:
@@ -99,17 +103,21 @@ Now then, are you ready? (Y/N, default is Y)""")
         else:
             return "draw"
 
+
     def closing_message(self, winner):
         clear()
         print("FINAL SCORES\n")
         print(f"Player points: {self.player_wins}\nAI points: {self.ai_wins}\n"
-              f"Draws: {self.games.count('draws')}\n")
+              f"Draws: {self.draws}\n")
         if winner == "player":
             print(f"Well done! You won {self.player_wins} games and {round(self.player_wins / self.amount_of_games * 100)}% of the full game.")
         elif winner == "ai":
             print(f"Tough game! You won {self.player_wins} games but the AI won {round(self.ai_wins / self.amount_of_games*100)}% of the full game.")
         else:
             print("Oh wow! The scores are the same (or none of you even won a single time)! No-one wins.")
+        input() # same reason as at the ERROR line
+        quit()
+
 
     def check_file_availability(self):
         results = []
