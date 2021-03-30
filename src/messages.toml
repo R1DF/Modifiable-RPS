@@ -1,0 +1,14 @@
+# Rock breaks the scissors (rock > scissors)
+player-rock-beats-scissors = "Your rock breaks the AI's scissors."
+ai-rock-beats-scissors = "AI's rock breaks your scissors."
+
+# Paper goes over the rock (paper > rock)
+player-paper-beats-rock = "Your paper goes over the AI's rock."
+ai-paper-beats-rock = "The AI's paper goes over your rock."
+
+# Scissors cut the paper (scissors > paper)
+player-scissors-beats-paper = "Your scissors cut the AI's paper."
+ai-scissors-beats-paper = "The AI's scissors cut your paper."
+
+# draw
+draw = "The items are the same!"

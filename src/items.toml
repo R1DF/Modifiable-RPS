@@ -1,13 +1,13 @@
 # Game settings
 
 [scissors]
-beats = "scissors"
-falls_to = "paper"
+beats = "paper"
+falls_to = "rock"
 
 [paper]
 beats = "rock"
 falls_to = "scissors"
 
 [rock]
-beats = "paper"
-falls_to = "rock"
+beats = "scissors"
+falls_to = "paper"
