@@ -1,5 +1,5 @@
 # Modifiable Rock, Paper, Scissors
-Editing guide: [link](editing.md)
+Editing guide: [link](editing_guides/editing_v1.0.0.md)
 
 This repository contains the code for the popular game "Rock, paper, Scissors" written in Python.
 All source code is inside the folder `src`, available for everyone.

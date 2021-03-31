@@ -64,7 +64,7 @@ Rock beats scissors (it breaks the scissors), and you already know what happens 
 If the two items are the same, it's a draw and no-one wins.
 
 THIS GAME IS MODIFIABLE
-If you want to modify the game, go to github.com/R1DF/Modifiable-RPS and follow README.md and editing.md for details!
+If you want to modify the game, go to github.com/R1DF/Modifiable-RPS and follow README.md and editing_v1.0.0.md for details!
 
 
 Now then, are you ready? (Y/N, default is Y)""")

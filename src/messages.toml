@@ -1,3 +1,4 @@
+# ignore the lines starting with hashtags, they are comments and won't do anything
 # Rock breaks the scissors (rock > scissors)
 player-rock-beats-scissors = "Your rock breaks the AI's scissors."
 ai-rock-beats-scissors = "AI's rock breaks your scissors."
